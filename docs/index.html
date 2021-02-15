@@ -29,10 +29,14 @@
                     document.getElementById("halo_chosen").textContent = `You chose halo ${event.target.value}`;
                     var halo = halos[event.target.value]
                     fields.forEach( fieldName => {
-                            document.getElementById(fieldName).textContent = fieldName+": "+halo[fieldName].toFixed(4).toString();
+                            document.getElementById(fieldName).textContent = halo[fieldName].toFixed(4);
                         });
                     num = ("" + event.target.value).padStart(4, "0");
                     document.getElementById("projection").src = `halo_${num}/projection_${num}.png`;
+                    document.getElementById("phaseplot").src = `halo_${num}/phaseplot_${num}.png`;
+                    document.getElementById("density_temperature_mass").src = `halo_${num}/density_temperature_mass_${num}.png`;
+                    document.getElementById("density_temperature_Elfraction").src = `halo_${num}/density_temperature_Elfraction_${num}.png`;
+                    document.getElementById("velocity_magnitude").src = `halo_${num}/velocity_magnitude_${num}.png`;
                 });
         });
 </script>
@@ -45,7 +49,12 @@
     <span id="particle_position_z (unitary)"></span><br/>
     <span id="particle_velocity_magnitude (km/s)"></span><br/>
     <span id="virial_radius (kpc)"></span><br/>
+    
     <img src="" id="projection">
+    <img src="" id="phaseplot">
+    <img src="" id="density_temperature_mass">
+    <img src="" id="density_temperature_Elfraction">
+    <img src="" id="velocity_magnitude">
     <select name="halo_id" id="halo_id">
     </select>
 </body>
