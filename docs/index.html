@@ -3,7 +3,7 @@
 <style type="text/css">
             .column {
               float: left;
-              width: 33%;
+              width: 32%;
               padding: 5px;
             }
             .row::after {
@@ -50,7 +50,7 @@
                     document.getElementById("density_temperature_mass").src = `halo_${num}/density_temperature_mass_${num}.png`;
                     document.getElementById("density_temperature_Elfraction").src = 
                         `halo_${num}/density_temperature_Elfraction_${num}.png`;
-                    document.getElementById("velocity_magnitude").src = `halo_${num}/velocity_magnitude_${num}.png`;
+                    document.getElementById("density_vel_mass").src = `halo_${num}/velocity_magnitude_${num}.png`;
                 });
         });
 </script>
@@ -66,14 +66,14 @@
     <div class="row">
         <div class="column">
             <figure>
-                <figcaption align="center">projection</figcaption>
-                <img src="" id="projection" style="width:70%">
+                <figcaption align="center"></figcaption>
+                <img src="" id="projection">
             </figure>
         </div>
         <div class="column">
             <figure>
-                <figcaption align="center">phaseplot</figcaption>
-                <img src="" id="phaseplot" style="width:70%">
+                <figcaption align="center"></figcaption>
+                <img src="" id="phaseplot">
             </figure>
         </div>
         <div class="column">
@@ -85,20 +85,20 @@
         <div class="row">
         <div class="column">
             <figure>
-                <figcaption align="center">density_temperature_mass</figcaption>
-                <img src="" id="density_temperature_mass" style="width:70%">
+                <figcaption align="center"></figcaption>
+                <img src="" id="density_temperature_mass">
             </figure>
         </div>
         <div class="column">
             <figure>
-                <figcaption align="center">density_temperature_Elfraction</figcaption>
-                <img src="" id="density_temperature_Elfraction" style="width:70%">
+                <figcaption align="center"></figcaption>
+                <img src="" id="density_temperature_Elfraction">
             </figure>
         </div>
         <div class="column">
             <figure>
-                <figcaption align="center">density_vel_mass</figcaption>
-                <img src="" id="density_vel_mass" style="width:70%">
+                <figcaption align="center"></figcaption>
+                <img src="" id="density_vel_mass">
             </figure>
         </div>
      </div>
