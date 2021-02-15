@@ -1,58 +1,49 @@
-
-            <html>
-                <body>
-                    <h1>Renaissance Simulated Halos</h1>
-                </body>
-            </html>
-        
-            <table border="1">
-            <tbody>
-        
-            <tr>
-                <td><a href="halo_0000/halo_0000.html">halo_0000</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0001/halo_0001.html">halo_0001</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0002/halo_0002.html">halo_0002</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0003/halo_0003.html">halo_0003</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0004/halo_0004.html">halo_0004</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0005/halo_0005.html">halo_0005</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0006/halo_0006.html">halo_0006</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0007/halo_0007.html">halo_0007</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0008/halo_0008.html">halo_0008</a></td>
-            </tr>
-        
-            <tr>
-                <td><a href="halo_0009/halo_0009.html">halo_0009</a></td>
-            </tr>
-        
-            </tbody>
-            </table>
-         
-        <style type="text/css">
-        table {
-                  border-collapse: collapse;
-            }
-      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Halos Dataset</title>
+<script>
+    var halos;
+        const fields = ["particle_mass (M_sun)", "particle_position_x (unitary)", "particle_position_y (unitary)", "particle_position_z (unitary)", "particle_velocity_magnitude (km/s)", "virial_radius (kpc)"];
+    document.addEventListener("DOMContentLoaded", () => {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                            halos = JSON.parse(this.responseText);
+                            var options = document.getElementById("halo_id");
+                            halos.slice(0, 100).forEach((v, i) => {
+                                    var newOption = document.createElement("option");
+                                    newOption.text = `Halo ${i}`;
+                                    newOption.value = i;
+                                    options.appendChild(newOption);
+                                });
+                        }
+                };
+            xmlhttp.open("GET", "halos.json", true);
+            xmlhttp.send();
+            document.getElementById("halo_id").addEventListener("change", (event) => {
+                    document.getElementById("halo_chosen").textContent = `You chose halo ${event.target.value}`;
+                    var halo = halos[event.target.value]
+                    fields.forEach( fieldName => {
+                            document.getElementById(fieldName).textContent = halo[fieldName];
+                        });
+                    num = ("" + event.target.value).padStart(4, "0");
+                    document.getElementById("projection").src = `halo_${num}/projection_${num}.png`;
+                });
+        });
+</script>
+</head>
+<body>
+    <span id="halo_chosen"></span><br/>
+    <span id="particle_mass (M_sun)"></span><br/>
+    <span id="particle_position_x (unitary)"></span><br/>
+    <span id="particle_position_y (unitary)"></span><br/>
+    <span id="particle_position_z (unitary)"></span><br/>
+    <span id="particle_velocity_magnitude (km/s)"></span><br/>
+    <span id="virial_radius (kpc)"></span><br/>
+    <img src="" id="projection">
+    <select name="halo_id" id="halo_id">
+    </select>
+</body>
+</html>
