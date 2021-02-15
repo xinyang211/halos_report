@@ -54,7 +54,7 @@ figcaption {
                             document.getElementById(fieldName).textContent = `${fieldName}: ${halo[fieldName].toFixed(4)}`
                         });
                     num = ("" + event.target.value).padStart(4, "0");
-                    images.forEach( (i,imageName) => {
+                    images.forEach( imageName => {
                             document.getElementById(imageName).src = `halo_${num}/${imageName}_${num}.png`;
 
                             
