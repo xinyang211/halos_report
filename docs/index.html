@@ -56,7 +56,7 @@ figcaption {
                     num = ("" + event.target.value).padStart(4, "0");
                     images.forEach(function callback(imageName, i){
                             document.getElementById(imageName).src = `halo_${num}/${imageName}_${num}.png`;
-                            document.getElementByClass("image_title")[i].textContent = imageName;
+                            document.getElementByClass("image_title")[i].textContent = `${imageName}`;
                         });
 
                 });
