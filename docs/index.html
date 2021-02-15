@@ -5,7 +5,7 @@
     <title>Halos Dataset</title>
 <script>
     var halos;
-        const fields = ["particle_mass (M_sun)", "particle_position_x (unitary)", "particle_position_y (unitary)", "particle_position_z (unitary)", "particle_velocity_magnitude (km/s)", "virial_radius (kpc)"];
+        const fields = ["particle_mass", "particle_position_x", "particle_position_y", "particle_position_z", "particle_velocity_magnitude", "virial_radius"];
     document.addEventListener("DOMContentLoaded", () => {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
@@ -36,12 +36,12 @@
 </head>
 <body>
     <span id="halo_chosen"></span><br/>
-    <span id="particle_mass (M_sun)"></span><br/>
-    <span id="particle_position_x (unitary)"></span><br/>
-    <span id="particle_position_y (unitary)"></span><br/>
-    <span id="particle_position_z (unitary)"></span><br/>
-    <span id="particle_velocity_magnitude (km/s)"></span><br/>
-    <span id="virial_radius (kpc)"></span><br/>
+    <span id="particle_mass"></span><br/>
+    <span id="particle_position_x"></span><br/>
+    <span id="particle_position_y"></span><br/>
+    <span id="particle_position_z"></span><br/>
+    <span id="particle_velocity_magnitude"></span><br/>
+    <span id="virial_radius"></span><br/>
     <img src="" id="projection">
     <select name="halo_id" id="halo_id">
     </select>
