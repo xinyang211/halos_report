@@ -12,12 +12,22 @@
              display: table;
             }
 </style>
+<style>
+img {
+  width: 80%;
+  height: auto;
+}
+figcaption {
+    align: center;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Halos Dataset</title>
 <script>
     var halos;
     const fields = ["particle_mass (M_sun)", "particle_position_x (unitary)", "particle_position_y (unitary)", "particle_position_z (unitary)", "particle_velocity_magnitude (km/s)", "virial_radius (kpc)"];
+    const images = ["projection", "phaseplot", "density_temperature_mass", "density_temperature_Elfraction", "density_vel_mass"]
     
     document.addEventListener("DOMContentLoaded", () => {
         
@@ -41,16 +51,14 @@
                     document.getElementById("halo_chosen").textContent = `You chose halo ${event.target.value}.`;
                     var halo = halos[event.target.value]
                     fields.forEach( fieldName => {
-                            document.getElementById(fieldName).textContent = 
-                                fieldName.toString()+": "+halo[fieldName].toFixed(4).toString();
+                            document.getElementById(fieldName).textContent = `${fieldName}: ${halo[fieldName].toFixed(4)}`
                         });
                     num = ("" + event.target.value).padStart(4, "0");
-                    document.getElementById("projection").src = `halo_${num}/projection_${num}.png`;
-                    document.getElementById("phaseplot").src = `halo_${num}/phaseplot_${num}.png`;
-                    document.getElementById("density_temperature_mass").src = `halo_${num}/density_temperature_mass_${num}.png`;
-                    document.getElementById("density_temperature_Elfraction").src = 
-                        `halo_${num}/density_temperature_Elfraction_${num}.png`;
-                    document.getElementById("density_vel_mass").src = `halo_${num}/density_vel_mass_${num}.png`;
+                    images.forEach( (i,imageName) => {
+                            document.getElementById(imageName).src = `halo_${num}/${imageName}_${num}.png`;
+                            document.getElementByClass("image_title")[i].textContent = imageName;
+                            
+
                 });
         });
 </script>
@@ -66,13 +74,13 @@
     <div class="row">
         <div class="column">
             <figure>
-                <figcaption align="center"></figcaption>
+                <figcaption class="image_title"></figcaption>
                 <img src="" id="projection">
             </figure>
         </div>
         <div class="column">
             <figure>
-                <figcaption align="center"></figcaption>
+                <figcaption class="image_title"></figcaption>
                 <img src="" id="phaseplot">
             </figure>
         </div>
@@ -85,19 +93,19 @@
         <div class="row">
         <div class="column">
             <figure>
-                <figcaption align="center"></figcaption>
+                <figcaption class="image_title"></figcaption>
                 <img src="" id="density_temperature_mass">
             </figure>
         </div>
         <div class="column">
             <figure>
-                <figcaption align="center"></figcaption>
+                <figcaption class="image_title"></figcaption>
                 <img src="" id="density_temperature_Elfraction">
             </figure>
         </div>
         <div class="column">
             <figure>
-                <figcaption align="center"></figcaption>
+                <figcaption class="image_title"></figcaption>
                 <img src="" id="density_vel_mass">
             </figure>
         </div>
