@@ -54,10 +54,10 @@ figcaption {
                             document.getElementById(fieldName).textContent = `${fieldName}: ${halo[fieldName].toFixed(4)}`
                         });
                     num = ("" + event.target.value).padStart(4, "0");
-                    images.forEach( imageName => {
+                    images.forEach( (i,imageName) => {
                             document.getElementById(imageName).src = `halo_${num}/${imageName}_${num}.png`;
-
-                            
+                            document.getElementByClass("image_title")[i].textContent = imageName;
+                        });
 
                 });
         });
