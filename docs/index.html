@@ -26,7 +26,7 @@
             xmlhttp.send();
         
             document.getElementById("halo_id").addEventListener("change", (event) => {
-                    document.getElementById("halo_chosen").textContent = `You chose halo ${event.target.value}`;
+                    document.getElementById("halo_chosen").textContent = `You chose halo ${event.target.value}.`;
                     var halo = halos[event.target.value]
                     fields.forEach( fieldName => {
                             document.getElementById(fieldName).textContent = halo[fieldName].toFixed(4);
