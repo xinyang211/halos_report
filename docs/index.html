@@ -29,7 +29,7 @@
                     document.getElementById("halo_chosen").textContent = `You chose halo ${event.target.value}`;
                     var halo = halos[event.target.value]
                     fields.forEach( fieldName => {
-                            document.getElementById(fieldName).textContent = halo[fieldName];
+                            document.getElementById(fieldName).textContent = fieldName+": "+halo[fieldName].toFixed(4).toString();
                         });
                     num = ("" + event.target.value).padStart(4, "0");
                     document.getElementById("projection").src = `halo_${num}/projection_${num}.png`;
