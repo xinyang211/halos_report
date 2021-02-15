@@ -3,8 +3,8 @@
 <style type="text/css">
             .column {
               float: left;
-              width: 33.33%;
-              padding: 1px;
+              width: 32%;
+              padding: 0px;
             }
             .row::after {
              content: "";
@@ -14,7 +14,7 @@
 </style>
 <style>
 img {
-  width: 80%;
+  width: 90%;
   height: auto;
 }
 figcaption {
@@ -63,6 +63,7 @@ figcaption {
 </script>
 </head>
 <body>
+    <select name="halo_id" id="halo_id"></select>
     <span style="color:red;font-weight:bold;" id="halo_chosen"></span><br/>
     <span id="particle_mass (M_sun)"></span><br/>
     <span id="particle_position_x (unitary)"></span><br/>
@@ -110,8 +111,5 @@ figcaption {
         </div>
      </div>
 
-    <select name="halo_id" id="halo_id">
-    </select>
-   
 </body>
 </html>
